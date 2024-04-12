@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>2 Project</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //setTimeout(()=>{
+     //  console.log("Aniket")
+    //},1000)//time milisecond
+
+    const sayfunction=()=>{
+        console.log("Aniket")
+    }
+    const chageText=()=>{
+        document.querySelector('h1').innerHTML="best javascript series"
+    }
+  const changeMe= setTimeout(chageText,2000)
+
+    setTimeout(sayfunction)
+
+   document.querySelector('#stop').addEventListener('click',function(){
+    clearTimeout(changeMe)
+    console.log("Stopped event")
+   })
+</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Event KeyCodes</title>
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid #e7e7e7;
+    }
+    .project {
+      background-color: #1c1c1c;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+    }
+    .color {
+      color: aliceblue;
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" aria-current="page">Home</a>
+    <a target="_blank" href="https://www.youtube.com/@chaiaurcode">Youtube channel</a>
+  </nav>
+  <div class="project">
+    <textarea id="textInput" cols="30" rows="10" placeholder="Type here..."></textarea>
+    <p id="displayKeys"></p>
+  </div>
+
+  <script>
+    const textInput = document.getElementById('textInput');
+    const displayKeys = document.getElementById('displayKeys');
+  
+    window.textInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace') {
+        displayKeys.textContent = displayKeys.textContent.slice(0, -1); // Remove the last character
+      } else if (e.key === 'Enter') {
+        displayKeys.textContent += '\n'; // Append newline character
+      } else if (e.shiftKey && e.key !== '') {
+        displayKeys.textContent+= e.key.toUpperCase(); 
+      } else {
+        displayKeys.textContent += e.key;
+      }
+    });
+
+
+//asunc await
+    let a = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("resolve");
+        }, 1000);
+      });
+    };
+    
+    let b = async () => {
+      console.log("calling");
+      let c = await a();
+      console.log(c);
+    };
+    b();
+  </script>
+  
+</body>
+</html>
